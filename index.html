@@ -17,6 +17,7 @@
 
 <body>
 	<div id="mainDiv">
+		<audio autoplay="autoplay" src="summer.mp3" controls="controls" preload id="auto"></audio>
 		<div id="content">
 			<div id="code">
 				<span class="comments">/**</span><br />
@@ -96,6 +97,17 @@
 
 			adjustCodePosition();
 			$("#code").typewriter();
+		}
+		var playPromise = audio.play();
+		if (playPromise !== undefined) {
+    		playPromise.then(_ => {
+    		// Automatic playback started!
+    		// Show playing UI.
+		})
+    		.catch(error => {
+    		// Auto-play was prevented
+    		// Show paused UI.
+    		});
 		}
 	</script>
 </body>
